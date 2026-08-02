@@ -30,5 +30,4 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
         run: python news_digest.py
