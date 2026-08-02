@@ -12,6 +12,8 @@ try:
 except ImportError:
     sys.exit("Missing dependency. Run: pip install -r requirements.txt")
 
+REQUEST_TIMEOUT_SECONDS = 90
+
 KST = timezone(timedelta(hours=9))
 DEFAULT_EMAIL = "williamai762@gmail.com"
 COMPANIES_FILE = "companies.txt"
@@ -58,7 +60,7 @@ Google 검색을 사용해 다음 기업의 가장 최신 관련 뉴스를 찾�
             print(f"  [{company}] attempt {attempt} failed: {e}")
             if attempt == retries:
                 return ""
-            time.sleep(5 * attempt)
+            time.sleep(3)
     return ""
 
 
@@ -128,14 +130,16 @@ def main():
     companies = load_companies()
     print(f"Found {len(companies)} companies. Model: {MODEL}")
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(timeout=REQUEST_TIMEOUT_SECONDS * 1000),
+    )
 
     results = []
     for i, company in enumerate(companies):
-        print(f"[{i + 1}/{len(companies)}] Searching news for {company}...")
+        print(f"[{i + 1}/{len(companies)}] Searching news for {company}...", flush=True)
         text = search_company_news(client, company, date_str)
         results.append((company, text))
-        time.sleep(1)
 
     html = build_html(results, date_str)
     send_email(html, date_str, from_addr, to_addr, app_password)
