@@ -1,0 +1,18 @@
+# Environment / secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (기존 스크립트)
+node_modules/
+scripts/package-lock.json
+
+# Logs
+*.log
+
+# OS
+.DS_Store
