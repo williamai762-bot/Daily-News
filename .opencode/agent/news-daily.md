@@ -1,7 +1,7 @@
 ---
 description: 매일 아침 커버 기업 뉴스를 웹 검색으로 수집하고 이메일로 정리해서 보냅니다.
 mode: subagent
-model: google/gemini-2.0-flash
+model: google/gemini-2.5-flash
 permission:
   websearch: allow
   bash: allow

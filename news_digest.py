@@ -17,7 +17,7 @@ REQUEST_TIMEOUT_SECONDS = 90
 KST = timezone(timedelta(hours=9))
 DEFAULT_EMAIL = "williamai762@gmail.com"
 COMPANIES_FILE = "companies.txt"
-MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.0-flash"
+MODEL = os.environ.get("GEMINI_MODEL") or "gemini-2.5-flash"
 
 
 def load_companies(path=COMPANIES_FILE):

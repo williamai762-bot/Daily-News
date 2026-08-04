@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "google/gemini-2.0-flash",
+  "model": "google/gemini-2.5-flash",
   "provider": {
     "google": {
       "options": {

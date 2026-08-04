@@ -54,7 +54,7 @@ git push -u origin main
 | `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 (필수) |
 | `EMAIL_FROM` | (선택) 보내는 계정, 기본 `williamai762@gmail.com` |
 | `EMAIL_TO` | (선택) 받는 계정, 기본 `williamai762@gmail.com` |
-| `GEMINI_MODEL` | (선택) 기본 `gemini-2.0-flash` |
+| `GEMINI_MODEL` | (선택) 기본 `gemini-2.5-flash` |
 
 ## 5단계: 테스트
 
