@@ -57,10 +57,14 @@ Google 검색을 사용해 다음 기업의 가장 최신 관련 뉴스를 찾�
             )
             return resp.text.strip() if resp.text else ""
         except Exception as e:
-            print(f"  [{company}] attempt {attempt} failed: {e}")
+            print(f"  [{company}] attempt {attempt} failed: {e}", flush=True)
             if attempt == retries:
                 return ""
-            time.sleep(3)
+            err_str = str(e)
+            if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
+                time.sleep(60)
+            else:
+                time.sleep(3)
     return ""
 
 
